@@ -1,6 +1,6 @@
 # İstatistiksel Hesap Makinesi
 
-Bu proje temel düzeydeki istatistiksel hesaplamaları hazır kütüphaneler kullanmadan emirhan.js kütüphanesine tanımladığım formüllerle hesaplayan bir hesap makinesidir. Girdiğiniz veriler doğrultusunda toplamda 10 ölçümün tek tuşla hesaplanmasıyla kolaylık ve hız kazanmak amaçlanmıştır.
+Bu proje temel düzeydeki istatistiksel hesaplamaları hazır kütüphaneler kullanmadan "emirhan.js" dosyasına tanımladığım formüllerle hesaplayan bir hesap makinesidir. Girdiğiniz veriler doğrultusunda toplamda 10 ölçümün tek tuşla hesaplanmasıyla kolaylık ve hız kazanmak amaçlanmıştır.
 
 ## Matematiksel Formüller
 
