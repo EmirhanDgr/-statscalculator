@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İstatistik Hesaplayıcı</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: white;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      input {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: linear-gradient(45deg, #16b3c7, #2575fc);
+        color: white;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(45deg, #2575fc, #1187cb);
+      }
+
+      .sonuc {
+        margin-top: 20px;
+        text-align: left;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .sonuc p {
+        margin: 5px 0;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>İstatistiksel Hesap Makinesi</h1>
+      <label>Sayıları aralarına virgül koyarak girin:</label>
+      <input id="inputNumbers" type="text" placeholder="Örn: 5,10,15" /><br />
+      <button onclick="hesapla()">Hesapla</button>
+
+      <div id="sonuc" class="sonuc"></div>
+    </div>
+
+    <script src="emirhan.js"></script>
+    <script>
+      function hesapla() {
+        const girdi = document.getElementById("inputNumbers").value;
+        const sayilar = girdi.split(",").map(Number);
+
+        const ortalama = emirhan.ortalama(sayilar);
+        const sigmakitle = emirhan.sigmakitle(sayilar);
+        const sigmaornek = emirhan.sigmaornek(sayilar);
+        const sigmakare = emirhan.sigmakare(sayilar);
+        const skare = emirhan.skare(sayilar);
+        const medyan = emirhan.medyan(sayilar);
+        const mod = emirhan.mod(sayilar);
+        const seror = emirhan.seror(sayilar);
+        const q1 = emirhan.q1(sayilar);
+        const q2 = emirhan.q2(sayilar);
+        const q3 = emirhan.q3(sayilar);
+        const iqr = emirhan.iqr(sayilar);
+
+        document.getElementById("sonuc").innerHTML = `
+        <p><strong>Veriler:</strong> [${sayilar.join(", ")}]</p>
+        <p><strong>Ortalama:</strong> ${ortalama.toFixed(3)}</p>
+        <p><strong>Kitle Standart Sapması:</strong> ${sigmakitle.toFixed(3)}</p>
+        <p><strong>Örneklem Standart Sapması:</strong> ${sigmaornek.toFixed(
+          3
+        )}</p>
+        <p><strong>Kitle Varyansı:</strong> ${sigmakare.toFixed(3)}</p>
+        <p><strong>Örneklem Varyansı:</strong> ${skare.toFixed(3)}</p>
+        <p><strong>Medyan:</strong> ${medyan}</p>
+        <p><strong>Mod:</strong> ${
+          mod === null ? "Mod yok" : mod.join(", ")
+        }</p>
+        <p><strong>Standart Hata:</strong> ${seror.toFixed(3)}</p>
+        <p><strong>Q1:</strong> ${q1}</p>
+        <p><strong>Q2 (Medyan):</strong> ${q2}</p>
+        <p><strong>Q3:</strong> ${q3}</p>
+        <p><strong>Çeyrek Sapma :</strong> ${iqr}</p>
+      `;
+      }
+    </script>
+  </body>
+</html>
